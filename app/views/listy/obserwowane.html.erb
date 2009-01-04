@@ -1,0 +1,20 @@
+<div class="submenu top">
+	<span class="lista">
+		Obserwujesz aktualnie <%= @sub.size %> użytkowników
+	</span>
+</div>
+<%- if @sub.nil? || @sub.blank? -%>
+	<p class="info">Aktualnie nic nie obserwujesz</p>
+<%- else -%>
+	<ul class="top">
+<%- @sub.each do | uzytkownik, listy | -%>
+	<li class="lista_uzyt" style="background-image: url(<%= uzytkownik.gravatar_url(:size => 16) %>);"><%= h uzytkownik.login %></li>
+	<%- for lista in listy -%>
+		<li class="lista_sub">
+			<%= link_to lista.nazwa, obserwuje_liste_path(lista.permalink) %>
+			<small> - <%= distance_of_time_in_words_pl lista.updated_at %> temu</small>
+		</li>
+	<%- end -%>
+<%- end -%>
+	</ul>
+<%- end -%>

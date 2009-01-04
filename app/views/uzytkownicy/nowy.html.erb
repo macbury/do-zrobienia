@@ -1,0 +1,20 @@
+<% form_for @uzytkownik, :url => { :action => :nowy } do |f| %>
+<h1>Rejestracja:</h1>
+<%= f.error_messages %>
+<p>
+	<%= f.label :login, 'Login:' %><br />
+	<%= f.text_field :login, :class => "big_edit" %>
+</p>
+<p>
+	<%= f.label :password, 'Hasło:' %><br />
+	<%= f.password_field :password, :class => "big_edit" %>
+</p>
+<p>
+	<%= f.label :password_confirmation, 'Powtórz hasło:' %><br />
+	<%= f.password_field :password_confirmation, :class => "big_edit" %>
+</p>
+<p>
+	<%= submit_tag 'Zarejestruj się!' %>
+</p>
+
+<% end %>

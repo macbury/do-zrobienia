@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  lista_id: 1
+  uzytkownik_id: 1
+
+two:
+  lista_id: 1
+  uzytkownik_id: 1

@@ -1,0 +1,10 @@
+<h1><%= h @lista.nazwa %></h1>
+
+<%= simple_format( h @lista.opis ) unless @lista.opis.nil? || @lista.opis.blank? unless @lista.opis.blank? %>
+<p>
+<b>Utworzono:</b> <%= @lista.created_at.to_s(:short) %><br />
+<b>Ostatnia zmiany:</b> <%= dzisiaj? @lista %><br />
+<% if @lista.udostepnienie == 1 %>
+<b>Lista publiczna:</b> <%= text_field_tag :url, publiczna_lista_url(@lista), :class => 'link_field' ,:readonly => true,:onClick => "this.select();" %><br />
+<% end %>
+</p>

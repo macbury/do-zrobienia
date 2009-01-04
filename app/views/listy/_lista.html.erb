@@ -1,0 +1,3 @@
+<%= content_tag :li, ( link_to(lista.nazwa, lista_zadania_path(lista)) + pozostalo(lista) ), 
+								:class => lista_image(lista),
+								:id => "lista_#{lista.id}" -%>

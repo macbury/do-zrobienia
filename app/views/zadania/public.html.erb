@@ -1,0 +1,35 @@
+<div class="submenu top">
+	<span class="lista">
+		Lista użytkownika <b><%= h @lista.uzytkownik.login %></b>
+	</span> 
+	<% if subskrybuje?(@lista) %>
+	<%= link_to "przestań obserwować", subskrybuj_lista_path(@lista) %>
+	<% else %>
+	<%= link_to "obserwuj,", subskrybuj_lista_path(@lista) %>
+	<% end %>
+	 lub 
+	<%= link_to "przejdź do obserwowanych list", obserwowane_listy_path if logged_in? %>
+	<%= link_to "przejdź do publicznych list", publiczne_listy_path unless logged_in? %>
+</div>
+
+<%= render :partial => "opis" %>
+
+	<% unless @zadania[false].nil? %>
+	<ul class="niezrobione">
+		<% @zadania[false].each do |zadanie| %>
+			<li><%= tekst zadanie %></li>
+		<% end %>
+	</ul>
+	<% end %>
+	<% unless @zadania[true].nil? %>
+	<ul class="wykonane" style="margin-top: 10px">
+		<% @zadania[true].each do |zadanie| %>
+			<li>
+				<%= tekst zadanie %>
+			<% if @lista.pokaz_czas_ukonczenia %>
+				<small><b> zrobione</b> <%= dzisiaj?(zadanie) %></small>
+			<% end %>
+			</li>
+		<% end %>
+	</ul>
+	<% end %>

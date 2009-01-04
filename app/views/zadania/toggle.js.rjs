@@ -1,0 +1,23 @@
+if @zadanie.nil? || @zadanie.blank?
+  page.alert "Nie można zmienić zadania: #{@zadanie.errors}"
+else
+  page[zadanie_check(@zadanie)].show
+  page[zadanie_spin(@zadanie)].hide
+
+  page.visual_effect :BlindUp, zadanie_id(@zadanie), :duration => 0.2
+  page.visual_effect :Fade, zadanie_id(@zadanie), :duration => 0.2
+
+  page.delay 0.2 do
+    page.remove zadanie_id(@zadanie)
+    if @zadanie.zrobione
+      wstaw = :zrobione
+    else
+      wstaw = :do_zrobienia
+    end
+    page.insert_html :bottom, wstaw, :partial => @zadanie, :locals => { :visible => true }
+    page.hide zadanie_id(@zadanie)
+    page.visual_effect :Appear, zadanie_id(@zadanie), :duration => 0.2
+    page.visual_effect :BlindDown, zadanie_id(@zadanie), :duration => 0.2
+    page << "sortuj_zadania('#{@lista.permalink}');"
+  end
+end

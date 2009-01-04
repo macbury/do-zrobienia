@@ -1,0 +1,19 @@
+
+<% form_for @lista, :html => { :id => 'udostepnienie_form' } do |f| %>
+	<fieldset>
+		<h1>Udostępnienie:</h1>
+		<p>
+			<%= f.radio_button :udostepnienie, 0 %> <b>Lista prywatna</b> - jest tylko dla ciebie. Nikt nie ma możliwości zobaczenia lub modyfikacji.
+		</p>
+		<p>
+			<%= f.radio_button :udostepnienie, 1 %> <b>Lista publiczna</b> - jest dostępna dla wszystkich. Każdy może ją oglądać lub obserwować jednak nie ma możliwości jej zmiany.
+		</p>
+		<p style="padding-left: 40px; margin-top: 10px">
+			<%= f.check_box :pokaz_czas_ukonczenia %> Pokaż kiedy zrobiono dane zadanie<br />
+			<%= f.check_box :pokaz_w_publicznych %> Pokaż w listach publicznych( <b>Uwaga:</b> Może zostać zindeksowana przez wyszukiwarkę. )
+		</p>
+	</fieldset>
+	<div class="submenu">
+		<%= f.submit "Zapisz" %> albo <%= link_to 'anuluj', lista_zadania_path(@lista) %>
+	</div>
+<% end %>

@@ -1,0 +1,21 @@
+flash.discard
+if @zadanie.errors.empty?
+  page[:zadania_form].reset
+  if @zadanie.zrobione
+    wstaw = :zrobione
+  else
+    wstaw = :do_zrobienia
+  end
+  page.insert_html :bottom, wstaw, :partial => @zadanie
+  page.hide zadanie_id(@zadanie)
+  page[zadanie_id(@zadanie)].hide
+  page.delay 0.5 do
+    page.visual_effect :BlindDown, zadanie_id(@zadanie), :duration => 0.5
+    page.visual_effect :Appear, zadanie_id(@zadanie), :duration => 0.5
+  end
+  page << "sortuj_zadania('#{@lista.permalink}');"
+else
+  blad = ""
+  @zadanie.errors.each_full { | msg | blad += "#{msg} " }
+  page.alert "Nie można dodać zadania z powodu: #{blad}"
+end

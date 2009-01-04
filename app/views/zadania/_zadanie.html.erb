@@ -1,0 +1,15 @@
+<p id="<%= zadanie_id(zadanie) %>">
+	<%= image_tag "drag.gif", :class => "drag" unless zadanie.zrobione -%>
+	<%= check_box_tag zadanie_check( zadanie ), zadanie.id, zadanie.zrobione,
+	 			:onClick => "toggle_zadanie(#{zadanie.id}, '#{@lista.permalink}');" -%>
+	<%= image_tag "spin.gif", :id => zadanie_spin( zadanie ),:style => "display: none" %>
+	<%= image_tag "del.png", :onClick => "usun_zadanie(#{zadanie.id}, '#{@lista.permalink}');", :id => "del_#{zadanie.id}", :class => "delete" if zadanie.zrobione -%>
+	<span id="<%= zadanie_edt(zadanie) %>"><%= tekst zadanie %></span>
+	<%- if zadanie.zrobione -%>
+	<b> zrobione <%= dzisiaj?(zadanie) %></b>
+	<%- else -%>
+	<script type="text/javascript" charset="utf-8">
+		aktualizuj_zadanie(<%= zadanie.id %>, '<%= @lista.permalink %>');
+	</script>
+	<%- end -%>
+</p>

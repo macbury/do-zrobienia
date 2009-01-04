@@ -1,0 +1,432 @@
+body {
+  font: 12px Verdana;
+  color: #333;
+	margin: 0;
+	background: white url('../images/bar.png') repeat-x center 50px;
+}
+
+a {
+	text-decoration: none;
+	color:#0080FF;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+h1, h2, h3 {
+	color: #333;
+}
+
+.content h1 {
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 4px;
+}
+
+.header {
+	height: 50px;
+	background: transparent url('../images/header.png') repeat-x bottom;
+	overflow: hidden;
+}
+
+.header h1 {
+	color: white;
+	float: left;
+	margin-top: 10px;
+	padding: 0;
+	font: "Lucida Grande";
+}
+
+.header ul {
+	margin: 0;
+	padding-top: 32px;
+	padding-right: 9px;
+	float: right;
+}
+
+.header ul > li {
+	list-style: none;
+	display: inline;
+}
+
+.header ul > li > a {
+	font-weight: bold;
+	font-size: 11px;
+	color: white;
+	text-decoration: none;
+	padding: 4px 9px;
+	background: #677283;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+}
+
+.header ul > li > a:hover:not(.selected) {
+	background: #7B8697;
+}
+
+.header ul > li > .selected {
+	background: white url('../images/bar_rev.png') repeat-x bottom;
+	color: #424343;
+}
+
+.header > .center {
+	width: 800px;
+	margin: 0 auto;
+}
+
+.header > .menu {
+	color: white;
+	position: absolute;
+	top:5px;
+	right: 10px;
+	font-size: 10px;
+	z-index: 2;
+}
+
+.header .menu > a {
+	text-decoration: none;
+	color: white;
+}
+
+.header > .menu > a:hover {
+	text-decoration: underline;
+}
+
+body > .content {
+	width: 800px;
+	margin: 0 auto 40px auto;
+	min-height: 440px;
+}
+
+.top {
+	padding-top: 10px;
+}
+
+.submenu {
+	margin: 0;
+}
+
+.submenu  a{
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.submenu a:hover{
+	color: #FFF;
+	background: #0080FF;
+	text-decoration: none;
+}
+
+.editor {
+	margin: 5px 0;
+	margin-bottom: 0px;
+	padding: 10px 15px;
+	background:#FFF;
+	border: 1px dashed #DDD;
+}
+
+form {
+	margin: 0px;
+	padding: 0px;
+}
+
+.notice, .error {
+	font-size: 11px;
+	padding: 10px;
+	text-align: center;
+	position: fixed;
+	top: 100px;
+	left: 200px;
+	right: 200px;
+	z-index: 100;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.notice {
+	background-color: #CFC;
+}
+
+.error {
+	background-color: #FCC;
+}
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+	float:right;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+.blad input {
+	border: 1px solid red;
+}
+
+#listy {
+	margin-top: 15px;
+}
+
+.content .lista, .listy, .lista_zrobiona, .lista_sub{
+	padding-left: 20px; 
+	margin: 5px 0;
+	list-style: none;
+}
+
+.content ul {
+	margin: 0px;
+}
+
+.content .listy{
+	background: url('/images/listy.png') no-repeat left center;
+}
+
+.content .lista{
+	background: url('/images/folder.png') no-repeat left center;
+}
+
+.content .lista_zrobiona{
+	background: url('/images/folder_ok.png') no-repeat left center;
+}
+
+.content .lista_sub{
+	background: url('/images/folder_sub.png') no-repeat left center;
+}
+
+.content .lista_uzyt {
+	padding-left: 20px; 
+	margin: 5px 0 5px -20px;
+	font-weight: bold;
+	list-style: none;
+	background: url('/images/user.png') no-repeat left center;
+}
+.content .desc{
+	font-size: 10px;
+	border-left: 3px solid #DDD;
+	padding: 10px;
+}
+
+.content #do_zrobienia {
+	padding-top: 0px
+}
+
+.content #do_zrobienia p{
+	font-size: 11px;
+}
+
+.content .niezrobione, .wykonane {
+	padding-left: 0px;
+	margin-top: 0px;
+}
+
+.content .niezrobione li {
+	background: url('/images/niezrobione.png') no-repeat left center;
+	list-style-type: none;
+	padding-left: 20px;
+	color: #5b5b5b;
+}
+
+.content .wykonane li {
+	background: url('/images/zrobione.png') no-repeat left center;
+	list-style-type: none;
+	padding-left: 20px;
+}
+
+.content .drag {
+	cursor: move;
+}
+
+.content .zostalo {
+	font-size: 11px;
+	color: #5b5b5b;
+}
+
+.content #zrobione p{
+	font-size: 11px;
+	color: #5b5b5b;
+}
+
+#do_zrobienia img{
+	margin-bottom: -3px;
+}
+
+#zrobione img{
+	margin-bottom: -3px;
+}
+
+.info{
+	line-height: 162px;
+	text-align: center;
+	margin: 0;
+	font-size: 18px;
+	font-weight: bold;
+	color: #B8B8B8;
+}
+
+.info_head {
+	padding: 20px;
+	height: 220px;
+	width: 800px;
+	margin: 0 auto;
+	background: transparent url('/images/doZrobienia_not_logo.png') no-repeat 450px bottom;
+}
+
+
+.info_head h1 {
+	font-size: 29px;
+	font-weight: normal;
+}
+
+.info_head h2 {
+	font-size: 18px;
+	font-weight: normal;
+	border: none;
+}
+
+.info_head .napis {
+	margin-top: 60px;
+	width: 400px;
+	text-align: center;
+}
+
+input[type="text"], input[type="password"], textarea{
+	font-size: 12px; 
+	font-weight: bold; 
+	padding: 4px;
+}
+
+.link_field {
+	padding: 0 !important;
+	font-weight: normal !important;
+	width: 320px;
+}
+
+fieldset {
+	margin: 0 auto;
+	border: none;
+}
+
+fieldset input {
+	margin-bottom: 3px;
+}
+
+input {
+	margin-bottom: 0px;
+}
+
+
+label{
+	font-weight: bold;
+}
+
+.delete{
+	cursor: pointer;
+}
+
+form.inplaceeditor-form { 
+	display: inline;
+}
+
+.pagination {
+	text-align: center;
+	padding: 10px;
+}
+
+.pagination a {
+	padding: 3px;
+	border: 1px solid #DDD;
+}
+
+.tags {
+	float: left; 
+	width: 180px; 
+	padding: 10px
+}
+
+.tags > h2 {
+	margin-top:0;
+} 
+
+.tags > ul {
+	padding: 0px;
+}
+
+.tags > ul > li {
+	line-height: 16px;
+	padding-left: 10px;
+	font-size: 10px;
+	cursor: pointer;
+	margin-top: 2px;
+	list-style: none;
+}
+
+.tags .selected{
+	background: #666 url('/images/tagik.png') no-repeat right center;
+	width: auto;
+	color: #FFF;
+}
+
+.left {
+	width: 600px;
+	float:left;
+}
+
+.footer {
+	text-align:center; 
+	margin: 10px 0; 
+	clear:both; 
+}
+
+.auto_complete {
+  width: 350px;
+  background: #fff;
+}
+.auto_complete ul {
+  border:1px solid #DDD;
+  margin:0;
+  padding:0;
+  width:100%;
+  list-style-type:none;
+}
+.auto_complete ul li {
+  margin:0;
+  padding:3px;
+}
+.auto_complete ul li.selected {
+  background-color: #ffb;
+}
+.auto_complete ul strong.highlight {
+  color: #800; 
+  margin:0;
+  padding:0;
+}

@@ -1,0 +1,16 @@
+<%- if @listy.nil? || @listy.blank? -%>
+<p class="info">Brak list zadań.</p>
+<%- else -%>
+	<div class="submenu top">
+		List 1 z 1
+	</div>
+	<ul>
+		<%- for lista in @listy -%>
+		<li class="<%= lista_image(lista) %>">
+			<%= link_to lista.nazwa, publiczna_lista_path(lista) -%> <%= pozostalo lista, false -%>
+		</li>
+		<%- end -%>
+	</ul>
+<%- end -%>
+<%= will_paginate @listy, :prev_label => '&laquo; Wstecz',
+													:next_label => 'Dalej &raquo;' %>

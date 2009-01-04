@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Do zrobienia (BETA)</title>
+	<meta name="Description" content="Serwis w którym możesz w bardzo łatwo tworzyć i dzielić się prostymi listami zadań." />
+	<meta name="Keywords" content="do, zrobienia, dozrobienia, lista, zadań, prosta, szybka" />
+	<meta name="Author" content="Buras Arkadiusz" />
+	<meta name="Distribution" content="Global" />
+	<meta name="Robots" content="index,follow" />
+
+	<%= stylesheet_link_tag "desktop" %>
+
+	<%= javascript_include_tag :all, :cache => true %>
+	<%- if form_authenticity_token -%>
+	<script type="text/javascript" charset="utf-8">
+		//To co może się nie udać, nie uda się na pewno. - prawo Murphego
+		//<![CDATA[
+		form_auth_token = '<%= form_authenticity_token %>';
+		//]]>
+	</script>
+	<%- end -%>
+</head>
+
+<body>
+	<div class="header">
+		<div class="center">
+			<h1>Do zrobienia.pl</h1>
+			<ul>
+				<%= tab_for "Strona Główna", :glowna, glowna_path %>
+				<%= tab_for "Publiczne", :publiczne, publiczne_listy_path %>
+				<%- if logged_in? -%>
+				<%= tab_for "Moje Listy", :moje, listy_path %>
+				<%= tab_for "Obserwowane", :obserwowane, obserwowane_listy_path %>
+				<%- end -%>
+			</ul>
+			<div style="clear:both"></div>
+		</div>
+		<div class="menu">
+			<%- if logged_in? -%>
+			Witaj <b><%= self.current_uzytkownik.login.capitalize %></b>
+				<%= link_to 'Ustawienia', ustawienia_path %>
+				 | 
+				<%= link_to 'Wyloguj', wyloguj_path  %>
+			<%- else -%>
+				<%= link_to 'Rejestracja', rejestruj_path %>
+				 | 
+				<%= link_to 'Zaloguj się', zaloguj_path  %>
+			<% end %>
+		</div>
+	</div>
+	<!--
+	<%- flash.each do |typ, msg| -%>
+		<div class="<%= typ %>">
+			<%= msg %>
+		</div>
+	<%- end -%>
+	-->
+	<div class="content">
+		<%= yield %>
+	</div>
+	
+	<div class="footer">
+		<p><b>Autor:</b> <a href="http://macbury.jogger.pl">MacBury</a>. <b>Wersja:</b> <%= APP_VERSION %></p>
+	</div>
+</body>
+</html>

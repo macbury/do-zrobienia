@@ -1,0 +1,18 @@
+<div class="block">
+	<% form_tag do %>
+	<fieldset style="text-align:center;">
+		<p><label for="login">Login:</label><br />
+		<%= text_field_tag 'login','', :class => "big_edit" %></p>
+
+		<p><label for="password">Hasło:</label><br />
+		<%= password_field_tag 'password','', :class => "big_edit" %></p>
+
+		<p><label for="remember_me">Zapamiętaj mnie:</label>
+		<%= check_box_tag 'remember_me' %></p>
+
+		<p>
+			<%= submit_tag 'Zaloguj' %> albo <%= link_to "Zarejestruj się!", rejestruj_path %>
+		</p>
+	</fieldset>
+	<% end %>
+</div>

@@ -1,0 +1,28 @@
+<div class="tags">
+	<h2>Tagi:</h2>
+	<ul>
+		<li class="selected" id="tag_all" onClick="zmien_tag('all','all')"><b>Wszystkie</b></li>
+		<%- for tag in @tagi -%>
+			<%= content_tag :li, h(tag.name),
+			 								:id => "tag_#{tag.id}",
+			 								:onClick => "zmien_tag('#{tag.name}', #{tag.id});" -%>
+		<%- end -%>
+	</ul>
+</div>
+
+<div class="left">
+	<div class="submenu top">
+		<span class="listy">
+			<%= link_to "Dodaj nową listę", new_lista_path %>
+		</span>
+	</div>
+<%- if @listy.nil? || @listy.blank? -%>
+	<p class="info">Brak list zadań.</p>
+<%- else -%>
+	<ul id="listy">
+		<%= render :partial => @listy %>
+	</ul>
+<%- end -%>
+</div>
+	
+<div style="clear:both"></div>

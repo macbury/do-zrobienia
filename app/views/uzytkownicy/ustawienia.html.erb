@@ -1,0 +1,15 @@
+
+<% form_for @uzytkownik, :url => ustawienia_path do | f | %>
+	<fieldset>
+		<h1>Powiadomienia:</h1>
+		<p>
+			<%= f.label :jid, "Jabber:" %>
+			<%= f.text_field :jid, :class => "big_edit" %>
+			<%= error_for @uzytkownik, :jid %>
+		</p>
+
+		<p>
+			<%= f.submit "Zapisz"%> albo <%= link_to "anuluj", listy_path %>
+		</p>
+	</fieldset>
+<% end %>

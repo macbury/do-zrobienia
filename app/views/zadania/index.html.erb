@@ -1,0 +1,39 @@
+<div class="submenu top">
+	<span class="lista">Ta lista</span> <%= link_to "edytuj", edit_lista_path(@lista) %>, 
+	<%= link_to "udostępnij", udostepnij_lista_path(@lista) %>,
+	<%= link_to "usuń", @lista, :confirm => "Czy na pewno chcesz usunąć tą liste?", :method => :delete %> 
+	albo 
+	<%= link_to "przejdź do moich list", listy_path %>
+</div>
+
+
+<%= render :partial => "opis" %>
+
+<div id="do_zrobienia">
+	<%= render :partial => @zadania[false] unless @zadania[false].nil? %>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+	//<![CDATA[
+	sortuj_zadania('<%= @lista.permalink %>');
+	//]]>	
+</script>
+
+<div class="submenu">
+	<p id="zadanie_block">
+		<%= link_to_function "Dodaj zadanie", "pokaz_ukryj('zadanie_block', 'zadanie_add');" %>
+	</p>
+	<div id="zadanie_add" style="display:none">
+	<% form_remote_for :zadanie, :url => lista_zadania_path(@lista), 
+				:html => { :id => "zadania_form" },
+				:loading => "zadanie_form_switch(true);",
+				:complete => "zadanie_form_switch(false);" do | f | %>
+	    <%= f.check_box :zrobione, :class => "zadanie_check" %>
+			<%= f.text_field :nazwa, :class => "big_edit", :style => "width: 400px; margin-right:5px" %>
+	    <%= f.submit "Dodaj" %> albo <%= link_to_function "anuluj", "pokaz_ukryj('zadanie_add', 'zadanie_block');" %>
+	<% end %>
+	</div>
+</div>
+<div id="zrobione">
+	<%= render :partial => @zadania[true] unless @zadania[true].nil? %>
+</div>
